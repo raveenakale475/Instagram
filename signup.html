@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link
+      rel="icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fafafa;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 30px;
+    }
+
+    /* header style */
+    .page .header {
+      text-align: center;
+    }
+    #btn:hover {
+      background-color: aqua;
+      color: black;
+    }
+    .page .header .logo,
+    .page .header p,
+    .page .header button {
+      margin-bottom: 15px;
+    }
+
+    .page .header > p {
+      font-weight: bold;
+      color: #8e8e8e;
+      font-size: 18px;
+    }
+
+    .page .header > button {
+      width: inherit;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      background-color: #0095f6;
+      color: #ffffff;
+    }
+
+    .page .header div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      color: #8e8e8e;
+    }
+
+    .page .header div p {
+      padding: 0 20px;
+    }
+
+    .page .header div hr {
+      width: 200px;
+    }
+
+    /* container style*/
+    .page .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page .container form,
+    input {
+      width: inherit;
+    }
+
+    .page .container form input {
+      border: 1px solid #dbdbdb;
+      background-color: #fafafa;
+      padding: 10px 5px;
+      margin: 5px 0;
+    }
+
+    .page .container form input:last-of-type {
+      margin-bottom: 10px;
+    }
+
+    .page .container form button {
+      width: inherit;
+      margin-bottom: 20px;
+      padding: 7px 20px;
+      border-radius: 5px;
+      border: none;
+      background-color: #1d92ec;
+      color: #e6e2e2;
+    }
+    .page .container form button:hover {
+      color: black;
+      background-color: pink;
+    }
+    .page .container ul {
+      list-style: none;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .page .container ul li {
+      display: inline;
+      color: #8e9096;
+    }
+
+    .page .container ul li a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #8e9096;
+      color: rgb(99, 133, 235);
+    }
+
+    /* option style */
+    .option p > a {
+      text-decoration: none;
+      color: #f70098;
+    }
+
+    /* otherapps style */
+    .otherapps {
+      text-align: center;
+    }
+
+    .otherapps p {
+      margin-bottom: 15px;
+    }
+
+    .otherapps > button {
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: black;
+      color: white;
+      padding: 10px;
+      font-size: 18px;
+    }
+
+    /* footer style */
+    .footer {
+      bottom: 0;
+      height: 2.5rem;
+      margin-top: 50px;
+    }
+
+    .footer ul {
+      text-align: center;
+      color: #f70098;
+    }
+    .footer ul li {
+      display: inline;
+      margin-right: 5px;
+    }
+    .footer ul li a {
+      text-decoration: none;
+      font-size: 12px;
+      color: #00376b;
+    }
+
+    .footer p {
+      margin: 10px 0;
+      text-align: center;
+      color: #8e9096;
+      font-size: 14px;
+    }
+
+    @media only screen and (min-width: 401px) {
+      body {
+        font-family: Neue Helvetica;
+      }
+      .page {
+        border: 1px solid #dbdbdb;
+        width: 350px;
+        background-color: white;
+        margin: 40px 40px 10px 40px;
+      }
+
+      .page .header {
+        width: 270px;
+        margin-top: 15px;
+      }
+
+      .page .container {
+        width: 270px;
+      }
+
+      .option {
+        border: 1px solid #dbdbdb;
+        background-color: white;
+        width: 350px;
+        height: 70px;
+        margin-top: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .otherapps {
+        margin: 20px 0;
+      }
+
+      .otherapps button {
+        margin-right: 5px;
+      }
+
+      .otherapps button:after-of-type {
+        margin-right: none;
+      }
+
+      .page .footer {
+        width: 100%;
+      }
+    }
+  </style>
+  <body>
+    <nav class="navbar"></nav>
+    <main>
+      <div class="page">
+        <div class="header">
+          <h1 class="logo">Instagram</h1>
+          <p>Sign up to see photos and videos from your friends.</p>
+          <button id="btn">Log in with Facebook</button>
+          <div>
+            <hr />
+            <p>OR</p>
+            <hr />
+          </div>
+        </div>
+        <div class="container">
+          <form action="">
+            <input type="text" id="name" placeholder="Full Name" />
+            <input type="text" id="email" placeholder="Email" />
+            <input type="text" id="username" placeholder="Username" />
+            <input type="password" id="password" placeholder="Password" />
+            <input
+              type="text"
+              name=""
+              id="mobile"
+              placeholder="Mobile Number"
+            />
+            <input
+              type="text"
+              name=""
+              id="description"
+              placeholder="Description"
+            />
+            <button onclick="Register()">Sign up</button>
+          </form>
+
+          <ul>
+            <li>By signing up, you agree to our</li>
+            <li><a href="">Terms</a></li>
+            <li><a href="">Data Policy</a></li>
+            <li>and</li>
+            <li><a href="">Cookies Policy</a> .</li>
+          </ul>
+        </div>
+      </div>
+      <div class="option">
+        <p>Have an account? <a href="login.html">Log in</a></p>
+      </div>
+      <div class="otherapps">
+        <p>Get the app.</p>
+        <button type="button">App Store</button>
+        <button type="button">Google Play</button>
+      </div>
+      <div class="footer">
+        <ul>
+          <li><a href="">ABOUT</a></li>
+          <li><a href="">HELP</a></li>
+          <li><a href="">PRESS</a></li>
+          <li><a href="">API</a></li>
+          <li><a href="">JOBS</a></li>
+          <li><a href="">PRIVACY</a></li>
+          <li><a href="">TEMS</a></li>
+          <li><a href="">LOCATIONS</a></li>
+          <li><a href="">TOP ACCOUNTS</a></li>
+          <li><a href="">HASHTAGS</a></li>
+          <li><a href="">LANGUAGE</a></li>
+        </ul>
+        <p>© 2020 PICTUREGRAM</p>
+      </div>
+    </main>
+  </body>
+</html>
+
+<script type="module" src="./components/installnavbar.js"></script>
+<script>
+  class User {
+    constructor() {}
+
+    #checkUsername(userName) {
+      let Name = userName.includes("#") ? false : true;
+
+      return Name;
+    }
+    #checkUserPassword(userPassword) {
+      let Password = userPassword.length > 8 ? true : false;
+
+      return Password;
+    }
+
+    #checkUserMobile(userMobile) {
+      return userMobile.length >= 10 ? true : false;
+    }
+
+    async Signup(n, e, u, p, m, d) {
+      let isValidated = this.#checkUsername(u) && this.#checkUserPassword(p);
+
+      if (isValidated) {
+        this.name = n;
+        this.email = e;
+        this.username = u;
+        this.password = p;
+        this.mobile = m;
+        this.description = d;
+
+        let actual_data = JSON.stringify(this);
+        console.log("actual_data:", actual_data);
+
+        try {
+          let res = await fetch(
+            `https://masai-api-mocker.herokuapp.com/auth/register`,
+            {
+              method: "POST",
+
+              body: actual_data,
+
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+
+          let convert = await res.json();
+
+          console.log("convert:", convert);
+        } catch (error) {
+          console.log("error:", error);
+        }
+      }
+    }
+  }
+
+  let U1 = new User();
+
+  function Register() {
+    const name = document.getElementById("name").value;
+
+    const email = document.getElementById("email").value;
+
+    const password = document.getElementById("password").value;
+
+    const username = document.getElementById("username").value;
+
+    const mobile = document.getElementById("mobile").value;
+
+    const description = document.getElementById("description").value;
+
+    let Details = U1.Signup(
+      name,
+      email,
+      username,
+      password,
+      mobile,
+      description
+    );
+    console.log("Details:", Details);
+  }
+</script>

@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "caption": "I am the Boss",
+      "id": "1",
+      "image_url": "https://i.ibb.co/ZT4THDb/Screenshot-37.png"
+    },
+    {
+      "caption": "Second",
+      "id": "2",
+      "image_url": "https://i.ibb.co/ZT4THDb/Screenshot-37.png"
+    },
+    {
+      "caption": "Third",
+      "id": "3",
+      "image_url": "https://i.ibb.co/6mh5HN6/Screenshot-30.png"
+    },
+    {
+      "caption": "Fourth",
+      "id": "4",
+      "image_url": "https://i.ibb.co/fqnx8RX/Screenshot-38.png"
+    },
+    {
+      "caption": "Hii I am last",
+      "id": "5",
+      "image_url": "https://i.ibb.co/fqnx8RX/Screenshot-38.png"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

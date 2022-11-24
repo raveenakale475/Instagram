@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram</title>
+    <link
+      rel="icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      #posts {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        justify-content: center;
+        margin: 0 30% 70%;
+      }
+      #posts img {
+        width: 100%;
+      }
+      #posts div {
+        margin: 5%;
+        border: solid 1px black;
+        width: 470px;
+      }
+      #posts div button {
+        margin: auto;
+        margin-left: 15%;
+        font-size: 20px;
+        padding: 5px;
+        border-radius: 10px;
+      }
+      button {
+        margin-top: 4%;
+        font-size: 20px;
+        padding: 5px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar"></nav>
+
+    <button onclick="Previous()">Previous</button>
+    <button onclick="Next()">Next</button>
+
+    <div id="posts"></div>
+  </body>
+</html>
+
+<script type="module" src="./components/installnavbar.js"></script>
+<script>
+  let currentPage = 1;
+
+  const data = async (currentPage) => {
+    try {
+      const res = await fetch(
+        `http://localhost:3000/posts?_page=${currentPage}&_limit=2`
+      );
+
+      const Data = await res.json();
+      Display(Data);
+    } catch (error) {
+      console.log("error:", error);
+    }
+  };
+
+  data(currentPage);
+
+  const Catch_posts = document.getElementById("posts");
+
+  const Display = (DATA) => {
+    Catch_posts.innerHTML = null;
+
+    DATA.map(({ caption, image_url, id }) => {
+      const div = document.createElement("div");
+
+      const img = document.createElement("img");
+      img.src = image_url;
+
+      const cap = document.createElement("p");
+      cap.innerText = caption;
+
+      const btn = document.createElement("button");
+      btn.innerText = "Delete";
+      btn.addEventListener("click", () => {
+        delete_btn(id);
+        const send_Recycle = {
+          caption,
+          image_url,
+          id,
+        };
+        localStorage.setItem("Recycle -bin", JSON.stringify(send_Recycle));
+      });
+
+      const edit_btn = document.createElement("button");
+      edit_btn.innerText = "Edit";
+      edit_btn.addEventListener("click", () => {
+        let send = {
+          id,
+          caption,
+        };
+        localStorage.setItem("ID_UPDATE", JSON.stringify(send));
+        window.location.href = "createpost.html";
+      });
+
+      div.append(img, cap, btn, edit_btn);
+
+      Catch_posts.append(div);
+    });
+  };
+
+  document.body.addEventListener("load", () => {
+    window.location.reload();
+  });
+
+  const delete_btn = async (id) => {
+    try {
+      const res = await fetch(` http://localhost:3000/posts/${id}`, {
+        method: "DELETE",
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const conv = await res.json();
+      console.log("conv:", conv);
+    } catch (error) {
+      console.log("error:", error);
+    }
+  };
+
+  const Next = () => {
+    currentPage++;
+    data(currentPage);
+  };
+
+  const Previous = () => {
+    currentPage--;
+    data(currentPage);
+  };
+</script>
