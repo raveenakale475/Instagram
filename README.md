@@ -1,1 +1,1 @@
-Netlify Link:-instagram-rrk.netlify.app
+Netlify Link:-https://instagram-rrk.netlify.app
